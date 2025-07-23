@@ -1,0 +1,9 @@
+Flask
+flask-cors
+pandas
+sentence-transformers
+scikit-learn==1.5.1
+torch
+joblib
+gunicorn
+cython
