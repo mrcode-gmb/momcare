@@ -6,13 +6,13 @@ import joblib
 import torch
 import re
 from flask_cors import CORS
-
+model = SentenceTransformer("momcare_model")
 
 
 app = Flask(__name__)
 CORS(app)  # This will allow all origins by default
 # Load your model
-model = SentenceTransformer("momcare_model") # Use model path or name if it's a SentenceTransformer
+model = joblib.load("momcare.pkl")  # Use model path or name if it's a SentenceTransformer
 
 # Load dataset and fix column names
 dataset = pd.read_csv("combined_knowledge_base.csv")
@@ -40,7 +40,7 @@ def home():
 
 @app.route('/get_response', methods=['POST'])
 def get_response():
-    user_input = request.json.get('message')
+    user_input = request.json.get('input')
 
     if not user_input:
         return jsonify({'response': 'I can oo.'}), 400

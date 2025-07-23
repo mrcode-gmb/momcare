@@ -40,7 +40,7 @@ def home():
 
 @app.route('/get_response', methods=['POST'])
 def get_response():
-    user_input = request.json.get('message')
+    user_input = request.json.get('messa')
 
     if not user_input:
         return jsonify({'response': 'I can oo.'}), 400
