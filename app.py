@@ -37,7 +37,11 @@ def home():
 
 @app.route('/get_response', methods=['POST'])
 def get_response():
-    user_input = request.json.get('input')
+    user_input = request.json.get('message')
+
+    if not user_input:
+        return jsonify({'response': 'I can oo.'}), 400
+
     cleaned_input = clean_text(user_input)
     user_embedding = model.encode(cleaned_input, convert_to_tensor=True)
 
@@ -45,10 +49,8 @@ def get_response():
     similarities = util.cos_sim(user_embedding, question_embeddings)
     best_match_idx = torch.argmax(similarities).item()
 
-    # Return the best matching response
     response = dataset.iloc[best_match_idx]['Answer']
     return jsonify({'response': response})
 
 if __name__ == '__main__':
     app.run(debug=True)
-j 
