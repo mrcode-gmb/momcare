@@ -9,7 +9,7 @@ from flask_cors import CORS
 app = Flask(__name__)
 CORS(app)  # This will allow all origins by default
 # Load your model
-model = joblib.load("restaurant_chatbot_model.pkl")  # Use model path or name if it's a SentenceTransformer
+model = joblib.load("momcare.pkl")  # Use model path or name if it's a SentenceTransformer
 
 # Load dataset and fix column names
 dataset = pd.read_csv("combined_knowledge_base.csv")
@@ -51,4 +51,4 @@ def get_response():
 
 if __name__ == '__main__':
     app.run(debug=True)
-j
+j 
