@@ -12,8 +12,7 @@ from flask_cors import CORS
 app = Flask(__name__)
 CORS(app)  # This will allow all origins by default
 # Load your model
-model = SentenceTransformer("all-MiniLM-L6-v2")  # ~80MB model hosted online
-
+model = SentenceTransformer("all-MiniLM-L6-v2")  # ~80MB model hosted online # Use model path or name if it's a SentenceTransformer
 
 # Load dataset and fix column names
 dataset = pd.read_csv("combined_knowledge_base.csv")
@@ -57,4 +56,5 @@ def get_response():
     return jsonify({'response': response})
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=8080)
+    port = int(os.environ.get("PORT", 5000))  # use $PORT or default to 5000 locally
+    app.run(host="0.0.0.0", port=port)

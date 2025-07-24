@@ -1,0 +1,11 @@
+Flask==2.3.3
+flask-cors==4.0.0
+pandas==2.2.2
+sentence-transformers>=4.0.2
+scikit-learn==1.4.2
+transformers>=4.40.0
+torch>=2.1.0
+joblib==1.4.2
+gunicorn==21.2.0
+cython==3.0.10
+huggingface_hub
