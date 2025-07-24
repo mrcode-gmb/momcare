@@ -12,7 +12,7 @@ from flask_cors import CORS
 app = Flask(__name__)
 CORS(app)  # This will allow all origins by default
 # Load your model
-model = SentenceTransformer("momcare_model") # Use model path or name if it's a SentenceTransformer
+model = SentenceTransformer("all-MiniLM-L6-v2")  # ~80MB model hosted online # Use model path or name if it's a SentenceTransformer
 
 # Load dataset and fix column names
 dataset = pd.read_csv("combined_knowledge_base.csv")
