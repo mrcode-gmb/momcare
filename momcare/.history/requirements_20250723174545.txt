@@ -1,9 +1,0 @@
-Flask
-flask-cors
-pandas
-sentence-transformers
-scikit-learn
-torch
-joblib
-gunicorn
-cython

@@ -1,9 +1,0 @@
-Flask
-flask-cors
-numpy<2.0
-sentence-transformers
-scikit-learn==1.5.1
-torch
-joblib
-gunicorn
-cython
